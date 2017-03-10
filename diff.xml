@@ -1,6 +1,9 @@
 <application>
   <component name="DiffSettings">
     <option name="PLACES_MAP">
+      <entry key="Default">
+        <PlaceSettings />
+      </entry>
       <entry key="TestsFiledAssertions">
         <PlaceSettings />
       </entry>
