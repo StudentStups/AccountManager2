@@ -1,8 +1,7 @@
 package com.company;
 
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.logging.Logger;
+
 
 /**
  * Created by Max on 10-Mar-17.
