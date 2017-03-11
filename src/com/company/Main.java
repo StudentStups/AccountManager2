@@ -10,9 +10,10 @@ public class Main {
 
     public static Account createNewAccount(){
         Account newAccount = new Account();
-        newAccount.setLogin(RandomString.randomEmailAdress());
+        newAccount.setName(RandomString.randomString());
+        newAccount.setLogin(newAccount.getName());
         newAccount.setPassword("MyPass");
-        newAccount.setBirthDate(1988,11,2);
+        newAccount.setDateOfLastLogin(System.currentTimeMillis());
         return newAccount;
     }
 
@@ -27,7 +28,6 @@ public class Main {
 
 
     public static void main(String[] args) {
-        System.out.println("Hello");
 
     }
 }

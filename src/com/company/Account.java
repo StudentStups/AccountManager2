@@ -2,7 +2,7 @@ package com.company;
 
 
 
-import java.util.Calendar;
+
 import java.util.Date;
 
 
@@ -10,9 +10,10 @@ import java.util.Date;
  * Created by Max on 10-Mar-17.
  */
 public class Account {
+    private static String name;
     private static String login;
     private static String password;
-    private static long dateOfLastLogin = System.currentTimeMillis();
+    private static long dateOfLastLogin;
     private static Date birthDate;
     private static int type;
     private static int TYPE_TEACHER = 1;
@@ -29,10 +30,12 @@ public class Account {
         return type;
     }
 
-    public void setBirthDate(int Year, int Month, int Day ) {
-        Calendar cal = Calendar.getInstance();
-        cal.set( Year, Month, Day );
-        this.birthDate = cal.getTime();
+    public static String getName() {
+        return name;
+    }
+
+    public static void setName(String name) {
+        Account.name = name;
     }
 
     public static Date getBirthdate() {

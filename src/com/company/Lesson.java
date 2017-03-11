@@ -9,7 +9,7 @@ import java.util.PrimitiveIterator;
  */
 public class Lesson {
     private static String nameOfLesson;
-    private static Account students;
+    private static ArrayList<Account> students;
     private static Account teacher;
 
     public static String getNameOfLesson() {
@@ -20,11 +20,11 @@ public class Lesson {
         Lesson.nameOfLesson = nameOfLesson;
     }
 
-    public static Account getStudents() {
+    public static ArrayList<Account> getStudents() {
         return students;
     }
 
-    public static void setStudents(Account students) {
+    public static void setStudents(ArrayList<Account> students) {
         Lesson.students = students;
     }
 

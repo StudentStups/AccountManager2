@@ -21,14 +21,14 @@ public class RandomString {
         return returnedString;
     }
 
-    public static String randomStringWithDog(){
-        return randomString()+"@";
+    public static String randomStringWithDog(String someString){
+        return someString+"@";
     }
 
     public static ArrayList<String > stringCollection(){
         ArrayList<String> myCollection = new ArrayList<String>();
         for (int i = 0; i < 10; i++){
-            myCollection.add(randomStringWithDog());
+            myCollection.add(randomStringWithDog(randomString()));
         }
         return myCollection;
     }
