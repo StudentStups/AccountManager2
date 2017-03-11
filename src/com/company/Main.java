@@ -2,9 +2,12 @@ package com.company;
 
 
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 public class Main {
+    private static Logger logger = Logger.getLogger(Main.class.getName());
 
     private static int randomNumber(int min, int max){
         return (int)(Math.random()*(max-min)+min);
@@ -13,10 +16,15 @@ public class Main {
     public static Account createNewAccount(){
         Account newAccount = new Account();
         newAccount.setName(RandomString.randomString());
-        newAccount.setLogin(newAccount.getName());
+        newAccount.setLogin(newAccount.getName()+"@"+RandomDomain.randomDomain());
         newAccount.setPassword("MyPass");
         newAccount.setDateOfLastLogin(System.currentTimeMillis());
         newAccount.setTypeStudent();
+        //logger.log(Level.INFO,"Account name is - "+Account.getName());
+        //logger.log(Level.INFO,"Account login is - "+Account.getLogin());
+        //logger.log(Level.INFO,"Account password is - "+Account.getPassword());
+        //logger.log(Level.INFO,"Account lastLogin is - "+Account.getDateOfLastLogin());
+        //logger.log(Level.INFO,"Account type is - "+Account.getType());
         return newAccount;
     }
 
@@ -27,6 +35,11 @@ public class Main {
         newAccount.setPassword("MyPass");
         newAccount.setDateOfLastLogin(System.currentTimeMillis());
         newAccount.setTypeTeacher();
+        //logger.log(Level.INFO,"Account name is - "+Account.getName());
+        //logger.log(Level.INFO,"Account login is - "+Account.getLogin());
+        //logger.log(Level.INFO,"Account password is - "+Account.getPassword());
+        //logger.log(Level.INFO,"Account lastLogin is - "+Account.getDateOfLastLogin());
+        //logger.log(Level.INFO,"Account type is - "+Account.getType());
         return newAccount;
 
     }
@@ -35,6 +48,11 @@ public class Main {
         ArrayList<Account> accounts = new ArrayList<Account>();
         for (int i = 0; i < number; i++){
             accounts.add(createNewAccount());
+            //logger.log(Level.INFO,"Account name is - "+Account.getName());
+           // logger.log(Level.INFO,"Account login is - "+Account.getLogin());
+           // logger.log(Level.INFO,"Account password is - "+Account.getPassword());
+           // logger.log(Level.INFO,"Account lastLogin is - "+Account.getDateOfLastLogin());
+          //  logger.log(Level.INFO,"Account type is - "+Account.getType());
         }
         return accounts;
     }
