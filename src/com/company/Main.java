@@ -1,7 +1,10 @@
 package com.company;
 
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -94,6 +97,38 @@ public class Main {
             month.add(createWeekOfLessons());
         }
         return month;
+    }
+
+    public static ArrayList<Lesson> getLessonsForDay(long dayInMills){
+        ArrayList<Lesson> lessons = new ArrayList<>();
+        Date date = new Date();
+        date.setTime(dayInMills);
+
+
+       /* SimpleDateFormat formating = new SimpleDateFormat("A") ;
+        String dateAsString = formating.format(date);
+        Date startOfLessson = new Date(date.getYear(),date.getMonth(),date.getDate(),9 ,0,0);
+        */
+
+
+        GregorianCalendar gc = new GregorianCalendar();
+        gc.setTime(date);
+        int day = gc.get(gc.DAY_OF_WEEK);
+        if(day==7 || day==1){
+            System.out.println("weekend");
+        }
+        else {
+            int dayOfMonth = gc.get(gc.DAY_OF_MONTH);
+            int moth = gc.get(gc.MONTH);
+            int year = gc.get(gc.YEAR);
+            Date correctDate = new Date(dayOfMonth,moth,year);
+        }
+
+
+
+
+        return lessons;
+
     }
 
     public static void main(String[] args) {
