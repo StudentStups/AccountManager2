@@ -101,34 +101,41 @@ public class Main {
 
     public static ArrayList<Lesson> getLessonsForDay(long dayInMills){
         ArrayList<Lesson> lessons = new ArrayList<>();
+        long timeOfFirstLesson = getCorrectTime(dayInMills);
+        if(timeOfFirstLesson==0){
+            System.out.println("WEEKEND");
+        }
+        else {
+            createRandomLesson();
+        }
+        return lessons;
+
+
+    }
+
+
+    public static long getCorrectTime(long dayInMills){
+        long correctTime =0;
         Date date = new Date();
         date.setTime(dayInMills);
-
-
-       /* SimpleDateFormat formating = new SimpleDateFormat("A") ;
-        String dateAsString = formating.format(date);
-        Date startOfLessson = new Date(date.getYear(),date.getMonth(),date.getDate(),9 ,0,0);
-        */
-
-
         GregorianCalendar gc = new GregorianCalendar();
         gc.setTime(date);
         int day = gc.get(gc.DAY_OF_WEEK);
         if(day==7 || day==1){
             System.out.println("weekend");
+            return correctTime;
         }
-        else {
+
+            else {
             int dayOfMonth = gc.get(gc.DAY_OF_MONTH);
             int moth = gc.get(gc.MONTH);
             int year = gc.get(gc.YEAR);
-            Date correctDate = new Date(dayOfMonth,moth,year);
+            GregorianCalendar correctDate = new GregorianCalendar();
+            correctDate.set(year,moth,dayOfMonth,9,0,0);
+            correctTime = correctDate.getTimeInMillis();
+
         }
-
-
-
-
-        return lessons;
-
+        return correctTime;
     }
 
     public static void main(String[] args) {

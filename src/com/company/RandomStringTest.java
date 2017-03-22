@@ -30,12 +30,12 @@ public class RandomStringTest {
 
     }
 
-    @Test
+    /*@Test
     public void stringContainsTest(){
         String underTest = RandomString.randomString();
         boolean test = underTest.contains("q");
         assertEquals(true,test);
-    }
+    }*/
 
     @Test
     public void getRandomTest(){
