@@ -11,6 +11,25 @@ public class Lesson {
     private static String nameOfLesson;
     private static ArrayList<Account> students;
     private static Account teacher;
+    private long startOfLesson;
+    private long lenghtOfLesson;
+
+
+    public long getStartOfLesson() {
+        return startOfLesson;
+    }
+
+    public void setStartOfLesson(long startOfLesson) {
+        this.startOfLesson = startOfLesson;
+    }
+
+    public long getLenghtOfLesson() {
+        return lenghtOfLesson;
+    }
+
+    public void setLenghtOfLesson(long lenghtOfLesson) {
+        this.lenghtOfLesson = lenghtOfLesson;
+    }
 
     public static String getNameOfLesson() {
         return nameOfLesson;

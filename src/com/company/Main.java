@@ -1,10 +1,14 @@
 package com.company;
 
 
+import sun.java2d.pipe.SpanShapeRenderer;
+
+import javax.sound.midi.Soundbank;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.StringJoiner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -13,7 +17,7 @@ public class Main {
     private static Logger logger = Logger.getLogger(Main.class.getName());
 
     private static int randomNumber(int min, int max){
-        return (int)(Math.random()*(max-min)+min);
+        return (int)(min+ (Math.random()*(max-min)+1));
     }
 
     public static Account createNewAccount(){
@@ -100,13 +104,35 @@ public class Main {
     }
 
     public static ArrayList<Lesson> getLessonsForDay(long dayInMills){
+        ArrayList<Teacher> teacherArray = new ArrayList<>();
+        ArrayList<String> subjects = new ArrayList<>();
+        subjects.add("Algebra");
+        subjects.add("Geom ");
+        subjects.add("Phys");
+        subjects.add("Sport");
+        subjects.add("Chem");
+        subjects.add("His");
+        subjects.add("Mus");
+        subjects.add("English");
+        subjects.add("Spanish");
+        subjects.add("Ling");
         ArrayList<Lesson> lessons = new ArrayList<>();
         long timeOfFirstLesson = getCorrectTime(dayInMills);
         if(timeOfFirstLesson==0){
             System.out.println("WEEKEND");
         }
         else {
-            createRandomLesson();
+            for(int j = 0; j < 10; j++){
+                Teacher teacher = new Teacher();
+                teacher.setTypeTeacher();
+                teacher.setName("Name of Teacher Here...");
+                teacher.setSubject(subjects.get(j));
+                teacher.setDateOfLastLogin(System.currentTimeMillis());
+            }
+            for (int i = 0; i < randomNumber(4,7); i++){
+                Lesson lesson = new Lesson();
+
+            }
         }
         return lessons;
 
@@ -124,9 +150,7 @@ public class Main {
         if(day==7 || day==1){
             System.out.println("weekend");
             return correctTime;
-        }
-
-            else {
+        } else {
             int dayOfMonth = gc.get(gc.DAY_OF_MONTH);
             int moth = gc.get(gc.MONTH);
             int year = gc.get(gc.YEAR);
@@ -139,6 +163,12 @@ public class Main {
     }
 
     public static void main(String[] args) {
+        Date date = new Date();
+        date.setTime(getCorrectTime(System.currentTimeMillis()));
+        SimpleDateFormat formatting = new SimpleDateFormat("YYYY/MM/dd HH:mm:ss");
+        String dateAsString = formatting.format(date);
+        System.out.println(dateAsString);
+
 
 
     }
