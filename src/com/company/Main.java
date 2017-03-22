@@ -131,8 +131,20 @@ public class Main {
                 teacher.setPassword("123");
                 teacherArray.add(teacher);
             }
+
+
+
             for (int i = 0; i < randomNumber(4,7); i++){
                 Lesson lesson = new Lesson();
+
+                if(i%2==0){
+                    lesson.setStudents(createNumberOfRandomAccounts(5));
+                } else {
+                    lesson.setStudents(createNumberOfRandomAccounts(5));
+                }
+
+
+                lesson.setTeacher(teacher);
 
             }
         }
