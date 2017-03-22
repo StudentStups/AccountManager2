@@ -128,6 +128,8 @@ public class Main {
                 teacher.setName("Name of Teacher Here...");
                 teacher.setSubject(subjects.get(j));
                 teacher.setDateOfLastLogin(System.currentTimeMillis());
+                teacher.setPassword("123");
+                teacherArray.add(teacher);
             }
             for (int i = 0; i < randomNumber(4,7); i++){
                 Lesson lesson = new Lesson();
